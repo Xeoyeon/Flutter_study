@@ -1,9 +1,0 @@
-# Null-safety
-
-
-Dart에서 모든 자료형은 기본적으로 non-nullable, 즉 null을 허용하지 않는 자료형이다.
-프로그램을 개발하다 보면 런타임, 즉 애플리케이션 실행 중 null 참조 에러가 많이 발생하는데, 
-null safety는 이 문제를 코드가 실행되기 전 컴파일러가 해당 버그를 잡아준다.
-
-### nullable vs non-nullable
-
