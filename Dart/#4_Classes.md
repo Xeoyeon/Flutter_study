@@ -4,7 +4,7 @@
 - 또한 아래와 같이 객체를 생성하여 호출할 수 있다. `var player = Player();`
   <br><br>
 
-### `this.name` vs `$name` ?
+### `this.name` vs `$name`
 - sayHello 함수에서 `this.name` 을 사용할 필요 없이 $을 통해(`$name`) name을 호출할 수 있다.
 - **this 를 사용하면 현재 객체인 Player를 참조하게 되므로**, 변수와 클래스의 property 이름이 겹치는 경우 클래스의 property를 호출하고 싶다면 this.name을 호출하면 된다.
 ```dart
@@ -134,7 +134,7 @@ void main(){
   );
 }
 ```
-
+<br><br>
 Named constructor 에도 syntatic sugar(편의 문법)이 존재한다.
 
 ```dart
@@ -152,23 +152,29 @@ Player.createBlue({
 	this.xp = '1500',
 });
 ```
-
-API로 데이터를 받으면, 그걸 클래스로 바꾸어야 한다.
+<br><br>
+## 심화
+여러 player가 들어있는 목록을 API로 데이터를 받아온다고 해보자. API로 데이터를 받으면, 그걸 클래스로 바꾸어야 한다.
 
 ```dart
 class Player{
-	final string name;
-	int xp;
-	String team;
+  final String name;
+  int xp;
+  String team;
 	
-	Player.fromJson(Map<String,dynamic> playerJson) :
-		name= playerJson['name'],
-		xp= playerJson['xp'],
-		team= playerJson['team'];
+  //fromJson이라는 named constructor
+  Player.fromJson(Map<String,dynamic> playerJson) :
+         name= playerJson['name'],
+         xp= playerJson['xp'],
+         team= playerJson['team'];
+  
+  void sayHello(){
+     print("Hello my name is $name");
+  }
 }
 
 void main(){
-	var apiData =[
+    var apiData =[
 		{
 			"name" : "xeoyeon",
 			"team" : "red",
@@ -184,10 +190,19 @@ void main(){
 			"team" : "red",
 			"xp" : 400,
 		},
-	];
+    ];
 	
-	apiData.forEach((playerJson) {})
+    //forEach라는 반복문 사용하여 각각의 데이터마다 Player 객체 생성
+    apiData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
 }
 ```
 
-Cascade Notation
+출력 결과 :
+
+![image](https://github.com/user-attachments/assets/e0f627e4-ca4b-483c-bbe6-aef939531945)
+
+<br><br>
+## Cascade Notation
