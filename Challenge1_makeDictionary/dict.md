@@ -24,7 +24,7 @@ bulkAdd: 다음과 같은 방식으로. 여러개의 단어를 한번에 추가�
 bulkDelete: 다음과 같은 방식으로. 여러개의 단어를 한번에 삭제할 수 있게 해줌. ["김치", "아파트"]
 
 <br><br>
-## Requirements:
+### Requirements:
 Use class
 
 Use typedefs
@@ -35,7 +35,7 @@ Use Map
 <br><br><br>
 
 
-## dartpad로 구현. 결과 화면 :
+### dartpad로 구현. 결과 화면 :
 
 ![image](https://github.com/user-attachments/assets/6c8e9d97-3b73-4835-b8f9-e3df4a1b199c)
 
