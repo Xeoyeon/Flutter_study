@@ -9,11 +9,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({super.key}); //key 값을 부모 클래스인 StatelessWidget에 전달
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      home: Container(),
+    );
   }
 }
 ```
